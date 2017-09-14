@@ -25,27 +25,6 @@ int kmpsearch(char *s,char *p)
 	else
 		return -1;
 }
-void getnext(char *p)
-{
-	memset(nx,0,sizeof(nx));
-	int pLen=strlen(p);
-	int k=-1,j=0;
-	nx[0]=-1;
-	while(j<pLen-1)
-	{
-		if(k==-1||p[k]==p[j])
-		{
-			j++;
-			k++;
-			if(p[k]!=p[j])
-				nx[j]=k;
-			else
-				nx[j]=nx[k];
-		}
-		else
-			k=nx[k];
-	}
-}
 int main()
 {
 	int n;

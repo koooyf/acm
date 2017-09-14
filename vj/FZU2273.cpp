@@ -5,7 +5,7 @@ using namespace std;
 struct point{
 	int x;
 	int y;
-}p[10];
+}p[20];
 bool cmp(point a,point b)
 {
 	if(a.x<b.x)
@@ -29,8 +29,12 @@ int main()
 	{
 		int cnt=0;
 		int ans=0;
-		for(int i=1;i<=6;i++)
+		for(int i=1;i<=3;i++)
 			scanf("%d%d",&p[i].x,&p[i].y);
+		scanf("%d%d",&p[10].x,&p[10].y);
+		for(int i=4;i<=6;i++)
+			scanf("%d%d",&p[i].x,&p[i].y);
+		scanf("%d%d",&p[11].x,&p[11].y);
 		sort(p+1,p+4,cmp);
 		p[7].x=p[3].x-p[1].x,p[7].y=p[3].y-p[1].y;
 		p[8].x=p[2].x-p[3].x,p[8].y=p[2].y-p[3].y;
@@ -47,12 +51,17 @@ int main()
 				else if(c1<0||c2<0||c3<0)
 					ans++;
 			}
-			if(cnt==3)
-				printf("contain\n");
-			else if(ans==3)
-				printf("disjoint\n");
+			 if(cnt==3)
+			{
+				if(p[10].x*p[11].y==p[10].y*p[11].x)
+					printf("NO\n");
+				else if((p[10].y>0&&p[11].y<0)||(p[10].y<0&&p[11].y>0))
+					printf("NO\n");
+				else
+					printf("YES\n");
+			}
 			else
-				printf("intersect\n");
+				printf("YES\n");
 		}
 		else
 		{
@@ -68,12 +77,17 @@ int main()
 					ans++;
 				}
 			}
-			if(cnt==3)
-				printf("contain\n");
-			else if(ans==3)
-				printf("disjoint\n");
+			 if(cnt==3)
+			{
+				if(p[10].x*p[11].y==p[10].y*p[11].x)
+					printf("NO\n");
+				else if((p[10].y>0&&p[11].y<0)||(p[10].y<0&&p[11].y>0))
+					printf("NO\n");
+				else
+					printf("YES\n");
+			}
 			else
-				printf("intersect\n");
+				printf("YES\n");
 		}
 	}
 	return 0;
